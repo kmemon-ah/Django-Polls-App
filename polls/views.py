@@ -25,23 +25,23 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Question.objects.order_by('-pub_date')[:5]
 
-# class DetailView(generic.DetailView):
-#     model = Question
-#     template_name = 'polls/detail.html'
-#     # def get_quet(self):
-#     #     question = get_object_or_404(Question,pk=question_id)
-#     #     return render(request,'polls/detail.html', {'question':question})
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = 'polls/detail.html'
+    # def get_quet(self):
+    #     question = get_object_or_404(Question,pk=question_id)
+    #     return render(request,'polls/detail.html', {'question':question})
 
-# class ResultsView(generic.DetailView):
-#     model = Question
-#     template_name = 'polls/results.html'
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = 'polls/results.html'
 
 # def detail(request,question_id):
 #     return HttpResponse("You are looking at question %s." %question_id)
 
-def results(request,question_id):
-    question = get_object_or_404(Question,pk=question_id)
-    return render(request,'polls/results.html',{'question':question})
+# def results(request,question_id):
+#     question = get_object_or_404(Question,pk=question_id)
+#     return render(request,'polls/results.html',{'question':question})
 
 
 def vote (request,question_id):
@@ -69,8 +69,8 @@ def vote (request,question_id):
 #         raise Http404("Question Does Not Exist")
 #     return render(request,'polls/detail.html', {'question':question})
 
-def detail(request,question_id):
-    question = get_object_or_404(Question,pk=question_id)
-    return render(request,'polls/detail.html', {'question':question})
+# def detail(request,question_id):
+#     question = get_object_or_404(Question,pk=question_id)
+#     return render(request,'polls/detail.html', {'question':question})
 
 
